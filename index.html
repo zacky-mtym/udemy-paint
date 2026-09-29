@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>お絵かき</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="toolbar">
+        <h1>お絵かき</h1>
+
+        <div class="group" role="group" aria-label="ツール">
+          <button type="button" class="tool active" data-tool="pen" aria-pressed="true">
+            ペン
+          </button>
+          <button type="button" class="tool" data-tool="eraser" aria-pressed="false">
+            消しゴム
+          </button>
+        </div>
+
+        <label class="group color-group">
+          <span>色</span>
+          <input type="color" id="color" value="#1f2937" />
+        </label>
+
+        <div class="swatches" aria-label="色のプリセット">
+          <button type="button" class="swatch" data-color="#1f2937" style="--swatch:#1f2937" aria-label="黒"></button>
+          <button type="button" class="swatch" data-color="#ef4444" style="--swatch:#ef4444" aria-label="赤"></button>
+          <button type="button" class="swatch" data-color="#f59e0b" style="--swatch:#f59e0b" aria-label="オレンジ"></button>
+          <button type="button" class="swatch" data-color="#22c55e" style="--swatch:#22c55e" aria-label="緑"></button>
+          <button type="button" class="swatch" data-color="#3b82f6" style="--swatch:#3b82f6" aria-label="青"></button>
+          <button type="button" class="swatch" data-color="#a855f7" style="--swatch:#a855f7" aria-label="紫"></button>
+        </div>
+
+        <label class="group size-group">
+          <span>太さ <output id="size-label">8</output></span>
+          <input type="range" id="size" min="1" max="48" value="8" />
+        </label>
+
+        <div class="group actions">
+          <button type="button" id="undo">取り消す</button>
+          <button type="button" id="clear">全部消す</button>
+          <button type="button" id="save" class="primary">保存</button>
+        </div>
+      </header>
+
+      <main class="stage">
+        <canvas id="canvas" class="tool-pen" tabindex="0" aria-label="キャンバス"></canvas>
+      </main>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
